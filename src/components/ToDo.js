@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+/* //without 'createSlice()'
+import { actionCreators } from "../store"; */
 import { Link } from "react-router-dom";
+//with 'createSlice()'
+import { remove } from "../store";
 
 function ToDo({ text, onBtnClick, id }) {
     return (
@@ -16,7 +19,7 @@ function ToDo({ text, onBtnClick, id }) {
 
 function mapDispatchToProps(dispatch, ownProps) {
     return {
-        onBtnClick: () => dispatch(actionCreators.deleteTodo(ownProps.id))
+        onBtnClick: () => dispatch(remove(ownProps.id))
     };
 }
 

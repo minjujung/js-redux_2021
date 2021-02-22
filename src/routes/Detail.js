@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
-import { Link } from "react-router-dom";
+/* //without 'createSlice()'
+import { actionCreators } from "../store"; */
 import { useHistory } from "react-router-dom";
+//with 'createSlice()'
+import { remove } from "../store";
 
 function Detail({ toDo, deleteInDetail }) {
     console.log(toDo);
@@ -32,7 +34,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
     return {
-        deleteInDetail: (id) => dispatch(actionCreators.deleteTodo(id))
+        deleteInDetail: (id) => dispatch(remove(id))
     };
 }
 
